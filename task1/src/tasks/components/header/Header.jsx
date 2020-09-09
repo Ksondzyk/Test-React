@@ -1,4 +1,5 @@
 import React from "react";
+import "./header.scss";
 
 const Task = ({ getPopup, showPopup }) => {
   return (
@@ -9,9 +10,6 @@ const Task = ({ getPopup, showPopup }) => {
           src="https://image.shutterstock.com/image-photo/hot-dog-mustard-ketchup-side-260nw-683413162.jpg"
           alt="Hot Doc Picture"
         />
-        <button onClick={() => addGrud(id)} className="header-grud-btn">
-          crud
-        </button>
       </div>
       <button onClick={() => getPopup(!showPopup)} className="header-add-btn">
         Add hot-dog

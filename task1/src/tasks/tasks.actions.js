@@ -2,13 +2,28 @@ import * as gateWays from "./tasks.gateway";
 import { tasksListSelector } from "./tasks.selectors";
 
 export const TASKS_LIST_RECEIVED = "TASKS_LIST_RECEIVED";
+export const FIND_TASKS_LIST = "FIND_TASKS_LIST";
+export const SHOW_POPUP = "SHOW_POPUP";
 
+export const showPopup = (showStatus) => {
+  return {
+    type: SHOW_POPUP,
+    show: showStatus,
+  };
+};
+
+export const findTasksList = (findValue) => {
+  return {
+    type: FIND_TASKS_LIST,
+    payload: {
+      findTask: findValue,
+    },
+  };
+};
 export const tasksListReceived = (tasksList) => {
   return {
     type: TASKS_LIST_RECEIVED,
-    payload: {
-      tasksList,
-    },
+    payload: { tasksList },
   };
 };
 

@@ -1,9 +1,11 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { tasksReducer } from "./tasks/tasks.reducer";
+import { tasksReducer, tasksFind, showPopup } from "./tasks/tasks.reducer";
 
 const reducer = combineReducers({
   tasks: tasksReducer,
+  find: tasksFind,
+  show: showPopup,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

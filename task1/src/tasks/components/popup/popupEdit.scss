@@ -1,0 +1,77 @@
+.popap {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  .popup-wrapper {
+    position: relative;
+    &__form {
+      z-index: 1;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      width: 10rem;
+      height: 17rem;
+      padding: 0.5rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      background-color: white;
+      &_title {
+        font-size: 1rem;
+        line-height: 1.4rem;
+        text-align: start;
+      }
+      &_field {
+        margin-top: 1rem;
+      }
+      &_buttons {
+        margin-top: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: start;
+      }
+    }
+    .popup-close {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      z-index: 99;
+      right: -12px;
+      top: -12px;
+    }
+    .popup-box-btn {
+      height: 1.5rem;
+      background-color: black;
+      color: white;
+      border: 1px solid white;
+      position: absolute;
+      z-index: 3;
+      left: 60px;
+      top: 229px;
+    }
+    .edit {
+      padding: 0;
+      height: 19rem;
+      justify-content: space-between;
+      .edit-image {
+        height: 160px;
+        object-fit: cover;
+      }
+      .indentation {
+        margin-top: 0;
+      }
+      .upgrade {
+        flex-direction: column;
+
+        .color {
+          background-color: grey;
+        }
+      }
+    }
+  }
+}
+.visible {
+  display: flex;
+  justify-content: center;
+}
