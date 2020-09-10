@@ -1,8 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-// var moment = require("moment"); // require
-// moment().format();
+
 const webpack = require("webpack");
 
 module.exports = (env, argv) => {
@@ -10,8 +9,8 @@ module.exports = (env, argv) => {
   const config = {
     entry: "./src/index.jsx",
     output: {
+      path: `${__dirname}/build`,
       filename: "bundle.js",
-      publicPath: "/",
     },
     module: {
       rules: [
