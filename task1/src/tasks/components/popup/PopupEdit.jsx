@@ -1,36 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import * as tasksActions from "../../tasks.actions";
 import "./popupEdit.scss";
-import { showPopupSelector, tasksListSelector } from "../../tasks.selectors";
+import {
+  showPopupSelector,
+  tasksListSelector,
+  getTaskSelector,
+} from "../../tasks.selectors";
 
 const PopupEdit = ({
   updateTask,
   deleteTask,
-  id,
-  updateData,
-  editHotDog,
   showPopup,
   showPopupEdit,
-  getTaskList,
+  getTask,
 }) => {
-  const [state, setUpdateState] = useState([...getTaskList]);
-  console.log(getTaskList);
+  const [state, setUpdateState] = useState({});
+
+  const [id, setUpdateId] = useState(null);
+
+  useEffect(() => {
+    const { id } = getTask;
+    setUpdateId(id);
+    setUpdateState({ ...getTask });
+  }, [getTask]);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUpdateState({
       ...state,
       [name]: value,
+      date: Date.now(),
     });
   };
+
   const handleSumbit = (event) => {
+    console.log(getTask);
     event.preventDefault();
     updateTask(id, state);
-    editHotDog(!showEdit);
+    showPopupEdit(false);
   };
   const handleSumbitDelete = (event) => {
     event.preventDefault();
     deleteTask(id);
+    showPopupEdit(false);
   };
   const closePopup = () => {
     showPopupEdit(false);
@@ -104,6 +117,7 @@ const mapState = (state) => {
   return {
     showPopup: showPopupSelector(state),
     getTaskList: tasksListSelector(state),
+    getTask: getTaskSelector(state),
   };
 };
 

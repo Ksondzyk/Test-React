@@ -4,6 +4,14 @@ import { tasksListSelector } from "./tasks.selectors";
 export const TASKS_LIST_RECEIVED = "TASKS_LIST_RECEIVED";
 export const FIND_TASKS_LIST = "FIND_TASKS_LIST";
 export const SHOW_POPUP = "SHOW_POPUP";
+export const GET_TASK_RECEIVED = "GET_TASK_RECEIVED";
+
+export const getTask = (taskOne) => {
+  return {
+    type: GET_TASK_RECEIVED,
+    task: taskOne,
+  };
+};
 
 export const showPopup = (showStatus) => {
   return {

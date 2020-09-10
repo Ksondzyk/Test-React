@@ -1,10 +1,25 @@
 import React from "react";
+import "./task.scss";
 import { connect } from "react-redux";
 import * as tasksActions from "../../tasks.actions";
 
-const Task = ({ id, name, title, description, image, showPopupEdit }) => {
-  const handleClick = (id1) => {
-    console.log(id1);
+const Task = ({
+  id,
+  name,
+  title,
+  description,
+  image,
+  showPopupEdit,
+  getTask,
+}) => {
+  const handleClick = () => {
+    getTask({
+      id: id,
+      name: name,
+      title: title,
+      description: description,
+      image: image,
+    });
     showPopupEdit(true);
   };
 
@@ -14,7 +29,7 @@ const Task = ({ id, name, title, description, image, showPopupEdit }) => {
       <h2 className="list-item__title">{`${title} $`}</h2>
       <span className="list-item__price">{name}</span>
       <p className="list-item__description">{description}</p>
-      <button onClick={() => handleClick(id)} className="list-item__delete-btn">
+      <button onClick={handleClick} className="list-item__delete-btn">
         edit
       </button>
     </li>
@@ -23,5 +38,6 @@ const Task = ({ id, name, title, description, image, showPopupEdit }) => {
 
 const mapDispatch = {
   showPopupEdit: tasksActions.showPopup,
+  getTask: tasksActions.getTask,
 };
 export default connect(null, mapDispatch)(Task);

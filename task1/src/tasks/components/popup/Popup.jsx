@@ -17,7 +17,7 @@ const Popap = ({ showPopup, getPopup, createTask }) => {
     setUpdateState({
       ...state,
       [name]: value,
-      date: new Date(),
+      date: Date.now(),
     });
   };
   const handleSumbit = (event) => {

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "./taskList.scss";
 import { connect } from "react-redux";
 import {
   tasksListSelector,

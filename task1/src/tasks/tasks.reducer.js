@@ -2,6 +2,7 @@ import {
   TASKS_LIST_RECEIVED,
   FIND_TASKS_LIST,
   SHOW_POPUP,
+  GET_TASK_RECEIVED,
 } from "./tasks.actions";
 
 const initialState = {
@@ -34,6 +35,15 @@ export const showPopup = (state = false, action) => {
   switch (action.type) {
     case SHOW_POPUP: {
       return action.show;
+    }
+    default:
+      return state;
+  }
+};
+export const getTask = (state = {}, action) => {
+  switch (action.type) {
+    case GET_TASK_RECEIVED: {
+      return action.task;
     }
     default:
       return state;
