@@ -22,6 +22,7 @@ const Search = ({ findTask }) => {
         type="text"
         value={state.inputFind}
         onChange={handleChange}
+        placeholder="Find product"
       />
     </div>
   );
